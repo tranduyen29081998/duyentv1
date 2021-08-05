@@ -1,0 +1,5 @@
+package com.fpt.ppmtool.domain;
+
+public class ProjectTask {
+
+}

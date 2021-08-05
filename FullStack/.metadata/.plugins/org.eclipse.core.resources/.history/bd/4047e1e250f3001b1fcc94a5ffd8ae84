@@ -1,0 +1,5 @@
+package com.fpt.ppmtool.payload;
+
+public class LoginRequest {
+
+}

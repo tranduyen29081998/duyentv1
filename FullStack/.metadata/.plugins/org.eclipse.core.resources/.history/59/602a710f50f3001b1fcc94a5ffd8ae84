@@ -1,0 +1,5 @@
+package com.fpt.ppmtool.services;
+
+public class CustomUserDetailsService {
+
+}

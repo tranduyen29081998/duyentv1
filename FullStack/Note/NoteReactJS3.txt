@@ -1,0 +1,49 @@
++Cài đặt Bootstrap : npm install bootstrap
++Cài đặt react-router: npm install react-router-dom
++npm i redux react-redux redux-thunk
++npm i axios    
++npm i classnames
++npm i jwt-decode
+
+
++Truy vấn path trong JS :
+"./": tức là thoát ra khỏi file hiện tại trở về thư mục mẹ -- vượt 1 cấp kể từ vị trị đứng là 1 cấp
+"../": tức là thoát ra khỏi file hiện tại trở về thư mục mẹ, tiếp theo thoát ra khỏi thư mục mẻ ==> trở mục thư mục ông ngoại - vượt 2 cấp
+
+Cài đặt bộ định tuyến:
+      <Router>
+        <div className="App">
+          <Header />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/addProject" component={AddProject} />
+        </div>
+      </Router>
+
+
+Chuyển trang trong React:
+Sử dụng:
+    <React.Fragment>
+      <Link to="/addProject" className="btn btn-lg btn-info">
+        Create a Project
+      </Link>
+    </React.Fragment>
++dispatch :gửi đi, 
+
+
+
+Props là các biến, data được truyền từ component cha và có thể truy cập được ở cả các component con.Nên props không thể thay đổi
+State được khởi tạo và chỉnh sửa và chỉ có thể truy bởi chính bản thân component chứa nó, nên state có thể thay đổi 
+
++ Khi user kích hoạt với sự kiện nhu click, ta sử dụng phương thức dispatch của store để gửi action mà user vừa kích hoạt đến chó reducer,
+Reducer nhận tham số action và thay đổi state tương ứng với action đó, sau đó lưu trạng thái mới của state lại vào trong store.Component sẽ
+kết nối đến store thông qua connect function, và nhận được các state của store và biến đổi chúng thành các props của component
+thông qua các hàm mapStateToProps
+
++Default Exports: Default exports are useful to export only a single object, function, variable. 
+During the import, we can use any name to import.
++ nếu sử dụng Default exports cho dù là cho 1 function có tên hay không tên. Import ta chỉ cần đặt tên cho nó là được
++ Đối với export bình thường, Tên export của 1 object function ra sao thì lúc IMPORT cũng phải giống.
+VD: export default function (){
+console.log("hello");
+}
+import x from "export"

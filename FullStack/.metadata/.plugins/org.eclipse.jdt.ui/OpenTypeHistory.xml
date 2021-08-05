@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=ppmtool/C:\/Users\/DuyenTV1\/.m2\/repository\/org\/springframework\/data\/spring-data-commons\/2.5.3\/spring-data-commons-2.5.3.jar=/maven.pomderived=/true=/=/maven.pomderived=/true=/=/maven.groupId=/org.springframework.data=/=/maven.artifactId=/spring-data-commons=/=/maven.version=/2.5.3=/=/maven.scope=/compile=/&lt;org.springframework.data.repository(CrudRepository.class[CrudRepository" modifiers="1537" timestamp="1627349392332"/>
+    <typeInfo handle="=ppmtool/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.fpt.ppmtool{PpmtoolApplication.java[PpmtoolApplication" modifiers="1" timestamp="1627873515017"/>
+    <typeInfo handle="=ppmtool/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.fpt.ppmtool.security{SecurityConfig.java[SecurityConfig" modifiers="1" timestamp="1627887985676"/>
+</typeInfoHistroy>

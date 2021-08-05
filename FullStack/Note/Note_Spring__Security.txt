@@ -1,0 +1,49 @@
++ Khi thêm dependence security vào project-> nó sẽ auto cấu hình security ban đầu: 
+có dòng chữ Using generated security password: 88806886-00e2-475d-9069-8b3a212913d1 và call api không được
++ Thêm @SpringBootApplication(exclude = { SecurityAutoConfiguration.class }) To discard the security auto-configuration
++ Transient :được sử dụng để đánh dấu các trường không nên được tạo trong table
++ Nếu có annotaion validation @Email;@ NotBlank bên trong 1 Entity : 
+Phải đi kèm với @Valid để sử dụng kiểm tra hợp lệ của những trường đó.
++ Nếu @Valid lỗi xảy ra thì BindingResult sẽ thông báo lỗi
++getById()(trả về object) để thay cho findById( trả về Optional(Object))
++ Sử dụng implements của org.springframework.validation.Validator để validate
+những trường đặc biệt :ví dụ: password và nhập lại password.
+Tác dụng: hàm validate() của Validator: sẽ kiểm tra dữ liệu, nếu có lỗi sẽ thêm
+lỗi đó vào trong object BindingResult
+++Các bước cấu hình Spring Security:
++Bước 1:
+Cấu hình SecurityConfig extends từ WebSecurityConfiguerAdapter
+và Override lại phương thức configure(HttpSecurity http) 
++Bước 2:
+Xây dựng class JwtAuthenticationEntryPoint implements implements AuthenticationEntryPoint
+để xử lý lỗi khi người dùng xác thực sai
++Bước 3: Tạo User entity, repository, service class
++Bước 3: Tạo lớp UserDetalService
+		-- Tạo loadUserByUsername
+		-- protected void configure(AuthenticationManagerBuilder authenticationManagerBuilder) và    
+			 @Override
+   		 @Bean(BeanIds.AUTHENTICATION_MANAGER)
+    		protected AuthenticationManager authenticationManager() throws Exception {
+        	return super.authenticationManager();
+   		 }: mục đích là xây dựng 1 AuthenticationManagerBuilder: để nhận vào chuỗi password của Login và mã hóa nó,
+			tiếp theo, sử dụng phương thức loadUserByUsername() của class CustomUserDetailsService để xác thực người dùng
++Bước 4: tạo class JwtTokenProvider : để tạo phương thức tạoToken và login thử
++Bước 5: -tạo tiếp hàm Validate the token và //Get user Id from token
+	- Tạo JwtAuthenticationFilter filter
+
+
+
+
++Trình tự xử lý của Security và Filter :Filter ---> SecurityConfig
+
+	+ Khi người dùng nhập 1 url : nó sẽ vào  Filter trước để kiểm tra tooken có hay không, 
+		-Nếu có thì validate token tạo 1 authentication:
+		chứa thông tin của người dùng ---> lúc này đã xác thực rồi.
+		- Nếu không thì cho đến SecurityConfig
+	+Tiếp theo đến	SecurityConfig 
+		-nếu đã xác thực token rồi thì cho qua đến Controller( thông qua anyRequest().authenticated())
+		-Nếu chưa xác thực token authenticationEntryPoint sẽ xử lý và xuất ra lỗi
++ Cách build: Trình tự xây dựng: Register --> Login --->Filter
+--Register: User -> UserDetail-->UserDetailService -->SecurityConfig-->@controller Register
+-- Login và CreateToken :Tạo hàm Login request và Login response -->Tạo hàm để tạo token --> Tạo @PostMapping login
+-- Tạo hàm validateToken -->Tạo filter để lọc và lấy token khi user request		

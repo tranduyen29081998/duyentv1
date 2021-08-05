@@ -1,0 +1,2 @@
+Có thêm Annotaion @JoinColumn: mới là 1 cột trong table, nếu ko có nó cho dù có @ManyToOne.... cũng sẽ không tạo cột.
+Khi 1 cột trong table có khóa ngoại với 1 bảng khác, nên để     @JsonIgnore sau field khóa ngoại đó, để tránh đệ quy .
