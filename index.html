@@ -11,3 +11,16 @@ master( branch master)
 git pull: để đồng bộ từ github xuống
 
 Lưu ý: Phải đồng bộ code từ github: với lệnh git pull. Rồi mới push với lệnh git push từ máy cá nhân lên được
+
+Tạo 1 branch mới: git branch name_branch
+Kiểm tra xem có những branch nào: git branch
+
+Chuyển từ branch này sang branch khác: git checkout name_branch
+
+PS D:\FPT\2__Learning\Git\GITHUB-DEMO> git branch branch1
+PS D:\FPT\2__Learning\Git\GITHUB-DEMO> git branch
+PS D:\FPT\2__Learning\Git\GITHUB-DEMO> git checkout branch1
+Switched to branch 'branch1'
+M       index.html
+
+git push --set-upstream origin branch1: lệnh này để tạo branch trên github, có lệnh này mới push được
